@@ -23,7 +23,7 @@ public class LoginUserTests {
     }
 
     @After
-    public void tearDown() throws InterruptedException {
+    public void tearDown(){
         steps.deleteUserStep();
         steps.clearCashStep();
     }

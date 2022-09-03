@@ -8,7 +8,8 @@ public class BaseClass {
 
     public static RequestSpecification getRequestSpecification() {
         requestSpecification = RestAssured.given()
-                .baseUri("https://stellarburgers.nomoreparties.site/");
+                .baseUri("https://stellarburgers.nomoreparties.site/")
+                .header("Content-type", "application/json");
         return requestSpecification;
     }
 }

@@ -19,7 +19,6 @@ public class UserRequests extends BaseClass {
         Response response =
                 given()
                         .spec(getRequestSpecification())
-                        .header("Content-type", "application/json")
                         .and()
                         .body(user)
                         .when()
@@ -31,14 +30,12 @@ public class UserRequests extends BaseClass {
     }
 
     public void deleteUser() {
-        try {
+        if (accessToken != null) {
             given()
                     .spec(getRequestSpecification())
                     .header("Authorization", accessToken)
                     .when()
                     .delete(USER_PATH + "user");
-        } catch (IllegalArgumentException e) {
-            System.out.println("accessToken = null");
         }
     }
 
@@ -46,7 +43,6 @@ public class UserRequests extends BaseClass {
         Response response =
                 given()
                         .spec(getRequestSpecification())
-                        .header("Content-type", "application/json")
                         .and()
                         .body(user)
                         .when()
